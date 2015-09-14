@@ -1,0 +1,38 @@
+apply plugin: "war"
+apply plugin: 'java'
+apply plugin: 'groovy'
+
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+sourceCompatibility = "1.8"
+
+task wrapper(type: Wrapper) {
+    gradleVersion = gradleWrapperVersion
+}
+
+
+repositories {
+  mavenCentral()
+}
+
+
+
+dependencies {
+  compile group: 'org.apache.camel', version: '2.15.3', name: 'camel-core'
+  compile group: 'org.apache.camel', version: '2.15.3', name: 'camel-cxf'
+  compile group: 'org.apache.camel', version: '2.15.3', name: 'camel-ftp'
+  compile group: 'org.apache.camel', version: '2.15.3', name: 'camel-jdbc'
+  compile group: 'org.apache.camel', version: '2.15.3', name: 'camel-jms'
+  compile group: 'org.apache.camel', version: '2.15.3', name: 'camel-stream'
+  compile group: 'org.apache.camel', version: '2.15.3', name: 'camel-velocity'
+  compile group: 'org.apache.camel', version: '2.15.3', name: 'camel-freemarker'
+  
+  compile group: 'org.springframework', version: '3.0.6.RELEASE', name: 'spring-web'
+  compile group: 'org.slf4j', version: '1.6.1', name: 'slf4j-api'
+  compile group: 'org.slf4j', version: '1.6.1', name: 'slf4j-log4j12'
+  compile group: 'log4j', version: '1.2.16', name: 'log4j'
+
+
+  testCompile group: 'junit', name: 'junit', version: '4.+'
+}
